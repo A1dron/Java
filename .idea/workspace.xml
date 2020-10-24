@@ -1,196 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c36eee00-42b2-44cb-a7c0-f5b2795d3063" name="Default Changelist" comment="BullsAndCows(Update)">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Java.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CowsAndBulls/BullsAndCows.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CowsAndBulls/Game.java" beforeDir="false" />
+    <list default="true" id="f52e6428-87f5-4d8a-b586-4fc9d2da1154" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" show_ignored="true" />
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1j1Fpxe4IKsLbxh10a6OS7zYtkB" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1jKFT8Jn4xZiwcNelALROEldB1u" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/BullsAndCows" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
-  <component name="RunManager">
-    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CowsAndBulls.Game" />
-      <module name="Java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Game" />
-      </list>
-    </recent_temporary>
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c36eee00-42b2-44cb-a7c0-f5b2795d3063" name="Default Changelist" comment="" />
-      <created>1602963879378</created>
+      <changelist id="f52e6428-87f5-4d8a-b586-4fc9d2da1154" name="Default Changelist" comment="" />
+      <created>1603544882017</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602963879378</updated>
+      <updated>1603544882017</updated>
     </task>
-    <task id="LOCAL-00001" summary="BullsAndCows">
-      <created>1603217907682</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1603217907682</updated>
-    </task>
-    <task id="LOCAL-00002" summary="BullsAndCows(Update)">
-      <created>1603318643017</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1603318643017</updated>
-    </task>
-    <task id="LOCAL-00003" summary="BullsAndCows(Update)">
-      <created>1603535943721</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1603535943721</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="BullsAndCows" />
-    <MESSAGE value="BullsAndCows(Update)" />
-    <option name="LAST_COMMIT_MESSAGE" value="BullsAndCows(Update)" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1603544555637">
+    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1603544915716">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603544555637" />
-    <state x="593" y="332" key="Github.CreateGistDialog" timestamp="1603146801153">
+    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603544915716" />
+    <state x="209" y="32" key="new project wizard" timestamp="1603544919081">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="593" y="332" key="Github.CreateGistDialog/0.0.1536.824@0.0.1536.824" timestamp="1603146801153" />
-    <state width="746" height="261" key="GridCell.Tab.0.bottom" timestamp="1603318878477">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="746" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603318878477" />
-    <state width="746" height="261" key="GridCell.Tab.0.center" timestamp="1603318878477">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="746" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603318878477" />
-    <state width="746" height="261" key="GridCell.Tab.0.left" timestamp="1603318878477">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="746" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603318878477" />
-    <state width="746" height="261" key="GridCell.Tab.0.right" timestamp="1603318878477">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="746" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603318878477" />
-    <state width="746" height="261" key="GridCell.Tab.1.bottom" timestamp="1603318878478">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="746" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603318878478" />
-    <state width="746" height="261" key="GridCell.Tab.1.center" timestamp="1603318878477">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="746" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1603318878477" />
-    <state width="746" height="261" key="GridCell.Tab.1.left" timestamp="1603318878477">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="746" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1603318878477" />
-    <state width="746" height="261" key="GridCell.Tab.1.right" timestamp="1603318878478">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="746" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1603318878478" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1603147521410">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603147521410" />
-    <state x="641" y="326" key="VCS.EditChangelistDialog" timestamp="1603534763888">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="641" y="326" key="VCS.EditChangelistDialog/0.0.1536.824@0.0.1536.824" timestamp="1603534763888" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1603535954985">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603535954985" />
-    <state x="209" y="32" key="new project wizard" timestamp="1603544539824">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="209" y="32" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1603544539824" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1603147515274">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1603147515274" />
-    <state x="431" y="145" key="search.everywhere.popup" timestamp="1603040678875">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603040678875" />
+    <state x="209" y="32" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1603544919081" />
   </component>
 </project>
