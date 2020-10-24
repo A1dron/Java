@@ -1,4 +1,4 @@
-package Testing;
+package Testing.People;
 
 public abstract class People {
     protected String name;
