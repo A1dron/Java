@@ -1,9 +1,11 @@
-package Testing.Entity;
+package Testing.entity;
+
+import java.util.List;
 
 public class Test {
-    private Question[] questions;
+    private List<Question> questions;
 
-    public Test(Question[] questions) {
+    public Test(List<Question> questions) {
         this.questions = questions;
     }
 

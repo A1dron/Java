@@ -1,4 +1,4 @@
-package Testing.Types;
+package Testing.entity;
 
 public enum Difficulty {
     EASY,

@@ -1,4 +1,4 @@
-package Testing.Types;
+package Testing.entity;
 
 public enum TypeQuestion {
     ONE_ANSWER,

@@ -1,6 +1,4 @@
-package Testing.Entity;
-
-import Testing.Entity.Test;
+package Testing.entity;
 
 public class LetsTesting {
     private Test test;

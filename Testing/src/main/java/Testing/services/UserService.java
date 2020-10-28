@@ -1,4 +1,4 @@
-package Testing.Services;
+package Testing.services;
 
 public interface UserService {
 

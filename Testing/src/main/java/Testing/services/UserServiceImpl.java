@@ -1,4 +1,4 @@
-package Testing.Services;
+package Testing.services;
 
 public class UserServiceImpl implements UserService {
     @Override
