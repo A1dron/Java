@@ -18,12 +18,24 @@ public class QuestionServiceImpl implements QuestionService {
     private List<Question> questions;
     private String pathToFile;
     private ObjectMapper objectMapper = new ObjectMapper();
+    private static QuestionService quest;
+    static {
+        quest = new QuestionServiceImpl();
+    }
 
-    public QuestionServiceImpl() throws IOException {
+    public static QuestionService getInstance(){
+        return quest;
+    }
+
+    public void loadFromJSON(String pathToFile) throws IOException {
         this.pathToFile = pathToFile;
         questions = objectMapper.readValue(new File(pathToFile), new TypeReference<List<Question>>() {
         });
         viewQuestions();
+    }
+
+    private QuestionServiceImpl() {
+
     }
 
     @Override
