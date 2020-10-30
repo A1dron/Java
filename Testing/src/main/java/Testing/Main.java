@@ -5,6 +5,8 @@ import Testing.entity.Question;
 import Testing.entity.TypeQuestion;
 import Testing.services.QuestionService;
 import Testing.services.QuestionServiceImpl;
+import Testing.services.UserService;
+import Testing.services.UserServiceImpl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ public class Main {
     private static final QuestionService questionService = QuestionServiceImpl.getInstance();
 
     public static void main(String[] args) throws IOException {
-        questionService.loadFromJSON("src/main/java/Testing/questions");
+        //questionService.loadFromJSON("src/main/java/Testing/questions");
+        UserService userService = UserServiceImpl.getInstance();
+        //userService.registration("Andrei","Andrew","password");
     }
 }
