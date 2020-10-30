@@ -1,16 +1,11 @@
 package Testing.services;
 
-import Testing.entity.Difficulty;
 import Testing.entity.Question;
-import Testing.entity.TypeQuestion;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class QuestionServiceImpl implements QuestionService {
