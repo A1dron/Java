@@ -1,11 +1,13 @@
 package Testing.services;
 
+import Testing.user.User;
+
 public interface UserService {
 
 
-    boolean authorization(String login, String password);
+    boolean authorization(User user);
 
-    void registration(String name, String login, String password);
+    void registration(User user);
 
     void logout();
 }
