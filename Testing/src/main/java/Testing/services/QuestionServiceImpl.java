@@ -1,5 +1,6 @@
 package Testing.services;
 
+import Testing.entity.DatabaseWrapper;
 import Testing.entity.Question;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,12 +18,14 @@ public class QuestionServiceImpl implements QuestionService {
     private List<Question> questions;
     private String pathToFile;
     private ObjectMapper objectMapper = new ObjectMapper();
+    private DatabaseWrapper db = new DatabaseWrapper();
     private static QuestionService quest;
+
     static {
         quest = new QuestionServiceImpl();
     }
 
-    public static QuestionService getInstance(){
+    public static QuestionService getInstance() {
         return quest;
     }
 
@@ -41,58 +44,20 @@ public class QuestionServiceImpl implements QuestionService {
     public void addQuestion(Question quest) throws IOException {
         questions.add(quest);
         objectMapper.writeValue(new File(pathToFile), questions);
-        try {
-            DriverManager.registerDriver(new org.h2.Driver());
-            connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
-            statement = connection.prepareStatement("insert into question(question,type_question,author, difficulty, answer) values(?, ?, ?, ?, ?)");
-            statement.setString(1, quest.getQuestion());
-            statement.setString(2, quest.getTypeQuestion().toString());
-            statement.setString(3, quest.getAuthor());
-            statement.setString(4, quest.getDifficulty().toString());
-            statement.setString(5, quest.getAnswer().toString());
-            int result = statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (statement != null) statement.close();
-            } catch (Exception e) {
-            }
-            try {
-                if (connection != null) connection.close();
-            } catch (Exception e) {
-            }
-        }
+        db.addQuest(quest);
     }
 
     @Override
     public void delQuestion(String question) {
 
         questions.removeIf(i -> i.getQuestion().equals(question));
-        try {
-            DriverManager.registerDriver(new org.h2.Driver());
-            connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
-            statement = connection.prepareStatement("delete from question where question = ?");
-            statement.setString(1, question);
-            int result = statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (statement != null) statement.close();
-            } catch (Exception e) {
-            }
-            try {
-                if (connection != null) connection.close();
-            } catch (Exception e) {
-            }
-        }
+        db.delQuest(question);
     }
 
     @Override
     public void printByQuest(String question) {
-        for (Question quest: questions) {
-            if (quest.getQuestion().equals(question)){
+        for (Question quest : questions) {
+            if (quest.getQuestion().equals(question)) {
                 System.out.println(quest);
             }
         }
