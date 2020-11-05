@@ -33,17 +33,17 @@ public class LogServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
-        String dataLine = req.getReader().lines().collect(Collectors.joining());
-        User user = objectMapper.readValue(dataLine, User.class);
-        if (new DatabaseWrapper().isExistUser(user)){
-            String login = user.getLogin();
-            String name = user.getName();
-            if (login == null){
-                session.setAttribute("login", name);
-                out.println("Hi");
-            }
-        }else{
-            out.println("I don't know you, pls registration");
-        }
+        String login = req.getParameter("login");
+//        User user = objectMapper.readValue(dataLine, User.class);
+//        if (new DatabaseWrapper().isExistUser(user)){
+//            String login = user.getLogin();
+//            String name = user.getName();
+//            if (login == null){
+//                session.setAttribute("login", name);
+//                out.println("Hi");
+//            }
+//        }else{
+//            out.println("I don't know you, pls registration");
+//        }
     }
 }
