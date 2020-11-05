@@ -2,9 +2,10 @@ package Testing.services;
 
 import Testing.entity.DatabaseWrapper;
 import Testing.user.User;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
-
+@Component
 public class UserServiceImpl implements UserService {
 
 

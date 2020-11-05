@@ -1,19 +1,15 @@
 package Testing;
 
-import Testing.entity.Difficulty;
-import Testing.entity.Question;
-import Testing.entity.TypeQuestion;
-import Testing.services.QuestionService;
-import Testing.services.QuestionServiceImpl;
-import Testing.services.UserService;
-import Testing.services.UserServiceImpl;
-import Testing.user.User;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+@SpringBootApplication
+@ServletComponentScan
 public class Main {
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
+    }
+    /*
     private static final QuestionService questionService = QuestionServiceImpl.getInstance();
 
     public static void main(String[] args) throws IOException {
@@ -24,5 +20,5 @@ public class Main {
         if (userService.authorization(user)) {
             System.out.println(1);
         } else System.out.println(0);
-    }
+    }*/
 }

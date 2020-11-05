@@ -3,6 +3,8 @@ package Testing.entity;
 import Testing.user.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseWrapper {
     private Connection connection = null;
@@ -116,6 +118,36 @@ public class DatabaseWrapper {
             } catch (Exception e) {
             }
         }
+    }
+
+    public List<String> listQuestions(){
+        List<String> questions = new ArrayList<String>();
+        try {
+            connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+            statement = connection.prepareStatement("select question from questions");
+            result = statement.executeQuery();
+
+            while (result.next()) {
+                String quest = result.getString("question");
+                questions.add(quest);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (result != null) result.close();
+            } catch (Exception e) {
+            }
+            try {
+                if (statement != null) statement.close();
+            } catch (Exception e) {
+            }
+            try {
+                if (connection != null) connection.close();
+            } catch (Exception e) {
+            }
+        }
+        return questions;
     }
 
 }

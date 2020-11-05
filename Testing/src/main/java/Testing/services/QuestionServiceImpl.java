@@ -17,6 +17,7 @@ public class QuestionServiceImpl implements QuestionService {
     private ResultSet result = null;
     private List<Question> questions;
     private String pathToFile;
+
     private ObjectMapper objectMapper = new ObjectMapper();
     private DatabaseWrapper db = new DatabaseWrapper();
     private static QuestionService quest;
@@ -49,7 +50,6 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public void delQuestion(String question) {
-
         questions.removeIf(i -> i.getQuestion().equals(question));
         db.delQuest(question);
     }
@@ -65,8 +65,12 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public void viewQuestions() throws IOException {
-        for (Question question : questions) {
-            System.out.println(question.getQuestion());
+//        for (Question question : questions) {
+//            System.out.println(question.getQuestion());
+//        }
+        List<String> viewQuest = new DatabaseWrapper().listQuestions();
+        for (String question : viewQuest) {
+            System.out.println(question);
         }
     }
 
