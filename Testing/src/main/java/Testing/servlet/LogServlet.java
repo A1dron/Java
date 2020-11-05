@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 //Реализовать сервлет для логина пользователя, обрабатывающего запрос GET /user/login. При
 // успешном логине данные о пользователе должны сохраняться в сессии.
 
-@WebServlet(name = "Nechto", urlPatterns = {"/user/login"})
+@WebServlet(urlPatterns = {"/user/login"})
 @Component
 public class LogServlet extends HttpServlet {
     @Autowired
@@ -34,16 +34,8 @@ public class LogServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
         String login = req.getParameter("login");
-//        User user = objectMapper.readValue(dataLine, User.class);
-//        if (new DatabaseWrapper().isExistUser(user)){
-//            String login = user.getLogin();
-//            String name = user.getName();
-//            if (login == null){
-//                session.setAttribute("login", name);
-//                out.println("Hi");
-//            }
-//        }else{
-//            out.println("I don't know you, pls registration");
-//        }
+        if(login != null){
+            session.setAttribute("login", login);
+        }
     }
 }

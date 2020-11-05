@@ -18,7 +18,7 @@ import java.io.PrintStream;
 import java.util.stream.Collectors;
 
 
-@WebServlet(name = "Testing", urlPatterns = {"/user/register"})
+@WebServlet(urlPatterns = {"/user/register"})
 @Component
 public class RegServlet extends HttpServlet {
     @Autowired
