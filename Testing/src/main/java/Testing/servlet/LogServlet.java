@@ -32,10 +32,13 @@ public class LogServlet extends HttpServlet {
         HttpSession session = req.getSession();
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        PrintWriter out = resp.getWriter();
         String login = req.getParameter("login");
+        String name = req.getParameter("name");
+        String pass = req.getParameter("password");
         if(login != null){
             session.setAttribute("login", login);
+            session.setAttribute("name", name);
+            session.setAttribute("password", pass);
         }
     }
 }

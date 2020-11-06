@@ -37,7 +37,7 @@ public class QuestionServiceImpl implements QuestionService {
         viewQuestions();
     }
 
-    private QuestionServiceImpl() {
+    public QuestionServiceImpl() {
 
     }
 
@@ -75,6 +75,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void redactQuestionBase() {
+    public void redactQuestion(String question, String param, String newValue) {
+        new DatabaseWrapper().updateQuest(question, param, newValue);
     }
 }

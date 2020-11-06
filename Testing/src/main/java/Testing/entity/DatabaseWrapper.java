@@ -74,7 +74,7 @@ public class DatabaseWrapper {
         }
     }
 
-    public void addQuest(Question question){
+    public void addQuest(Question question) {
         try {
             //DriverManager.registerDriver(new org.h2.Driver());
             connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
@@ -99,7 +99,7 @@ public class DatabaseWrapper {
         }
     }
 
-    public void delQuest(String question){
+    public void delQuest(String question) {
         try {
             DriverManager.registerDriver(new org.h2.Driver());
             connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
@@ -120,7 +120,42 @@ public class DatabaseWrapper {
         }
     }
 
-    public List<String> listQuestions(){
+    public Question getQuestion(String question) {
+        Question quest= new Question();
+        try {
+            String typeQuestion, author, difficulty, answer;
+            connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+            statement = connection.prepareStatement("select * from question where question = ?");
+            statement.setString(1, question);
+            result = statement.executeQuery();
+            while (result.next()) {
+                typeQuestion = result.getString("TYPE_QUESTION");
+                author = result.getString("AUTHOR");
+                difficulty = result.getString("DIFFICULTY");
+                answer = result.getString("ANSWER");
+                quest = new Question(question, typeQuestion, author, difficulty, answer);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (result != null) result.close();
+            } catch (Exception e) {
+            }
+            try {
+                if (statement != null) statement.close();
+            } catch (Exception e) {
+            }
+            try {
+                if (connection != null) connection.close();
+            } catch (Exception e) {
+            }
+        }
+        return quest;
+    }
+
+    public List<String> listQuestions() {
         List<String> questions = new ArrayList<String>();
         try {
             connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
@@ -148,6 +183,29 @@ public class DatabaseWrapper {
             }
         }
         return questions;
+    }
+
+    public void updateQuest(String question, String param, String newValue) {
+        try {
+            DriverManager.registerDriver(new org.h2.Driver());
+            connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+            statement = connection.prepareStatement("update QUESTION set ? = ? where question = ?");
+            statement.setString(1, param);
+            statement.setString(2, newValue);
+            statement.setString(3, question);
+            int result = statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (statement != null) statement.close();
+            } catch (Exception e) {
+            }
+            try {
+                if (connection != null) connection.close();
+            } catch (Exception e) {
+            }
+        }
     }
 
 }

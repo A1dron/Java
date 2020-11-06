@@ -15,11 +15,11 @@ public class Question {
         this.question = question;
     }
 
-    public TypeQuestion getTypeQuestion() {
+    public String getTypeQuestion() {
         return typeQuestion;
     }
 
-    public void setTypeQuestion(TypeQuestion typeQuestion) {
+    public void setTypeQuestion(String typeQuestion) {
         this.typeQuestion = typeQuestion;
     }
 
@@ -31,19 +31,19 @@ public class Question {
         this.author = author;
     }
 
-    public Difficulty getDifficulty() {
+    public String getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(Difficulty difficulty) {
+    public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
 
-    public List<String> getAnswer() {
+    public String getAnswer() {
         return answer;
     }
 
-    public void setAnswer(List<String> answer) {
+    public void setAnswer(String answer) {
         this.answer = answer;
     }
 
@@ -56,13 +56,13 @@ public class Question {
     }
 
     private String question;
-    private TypeQuestion typeQuestion;
+    private String typeQuestion;
     private String author;
-    private Difficulty difficulty;
-    private List<String> answer;
+    private String difficulty;
+    private String answer;
     private boolean isPassed;
 
-    public Question(String question, TypeQuestion typeQuestion, String author, Difficulty difficulty, List<String> answer){
+    public Question(String question, String typeQuestion, String author, String difficulty, String answer){
         this.question = question;
         this.typeQuestion = typeQuestion;
         this.author = author;

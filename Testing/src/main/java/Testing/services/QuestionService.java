@@ -17,5 +17,5 @@ public interface QuestionService {
 
     void viewQuestions() throws IOException;
 
-    void redactQuestionBase();
+    void redactQuestion(String question, String param, String newValue);
 }
