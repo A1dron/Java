@@ -1,6 +1,7 @@
 package Testing.servlet;
 
 
+import Testing.DataBaseWrapper.DatabaseWrapperQuestion;
 import Testing.DataBaseWrapper.DatabaseWrapperUser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -25,7 +26,7 @@ public class ListQuestionsServlet extends HttpServlet {
         //HttpSession session = req.getSession();
         PrintWriter writer = resp.getWriter();
         try {
-            List<String> quest = new DatabaseWrapperUser().listQuestions();
+            List<String> quest = new DatabaseWrapperQuestion().listQuestions();
             for (String question : quest) {
                 writer.println("<p>Question: " + question + "</p>");
             }
