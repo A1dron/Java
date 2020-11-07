@@ -1,16 +1,15 @@
 package Testing.services;
 
-import Testing.entity.DatabaseWrapper;
+import Testing.DataBaseWrapper.DatabaseWrapperUser;
 import Testing.user.User;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
 @Component
 public class UserServiceImpl implements UserService {
 
 
     private static UserServiceImpl instance;
-    private DatabaseWrapper db = new DatabaseWrapper();
+    private DatabaseWrapperUser db = new DatabaseWrapperUser();
 
     private UserServiceImpl() {
 

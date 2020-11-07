@@ -1,12 +1,11 @@
 package Testing.user;
 
-import Testing.entity.Role;
 
 public class User {
     private String name;
     private String login;
     private String password;
-    private Role role;
+    private String role;
 
     public String getName() {
         return name;

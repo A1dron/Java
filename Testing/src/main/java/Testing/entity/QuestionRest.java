@@ -1,9 +1,10 @@
 package Testing.entity;
 
+import Testing.DataBaseWrapper.DatabaseWrapperQuestion;
+import Testing.DataBaseWrapper.DatabaseWrapperUser;
 import Testing.services.QuestionServiceImpl;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.List;
 
@@ -14,14 +15,14 @@ public class QuestionRest {
     @POST
     @Path("/question/view")
     public List<String> getAll(){
-        List<String> quest = new DatabaseWrapper().listQuestions();
+        List<String> quest = new DatabaseWrapperQuestion().listQuestions();
         return quest;
     }
 
     @GET
     @Path("/question/{question}")
     public Question getQuestion(@PathParam("question") String quest){
-        return new DatabaseWrapper().getQuestion(quest);
+        return new DatabaseWrapperQuestion().getQuestion(quest);
     }
 
     @PUT

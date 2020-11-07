@@ -1,8 +1,7 @@
 package Testing.servlet;
 
-import Testing.entity.DatabaseWrapper;
+import Testing.DataBaseWrapper.DatabaseWrapperUser;
 import Testing.services.UserService;
-import Testing.services.UserServiceImpl;
 import Testing.user.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.stream.Collectors;
 
 
@@ -31,6 +29,6 @@ public class RegServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         String dataLine = req.getReader().lines().collect(Collectors.joining());
         User user = objectMapper.readValue(dataLine, User.class);
-        new DatabaseWrapper().regUser(user);
+        new DatabaseWrapperUser().regUser(user);
     }
 }

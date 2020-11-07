@@ -1,6 +1,7 @@
 package Testing.services;
 
-import Testing.entity.DatabaseWrapper;
+import Testing.DataBaseWrapper.DatabaseWrapperQuestion;
+import Testing.DataBaseWrapper.DatabaseWrapperUser;
 import Testing.entity.Question;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,7 +20,7 @@ public class QuestionServiceImpl implements QuestionService {
     private String pathToFile;
 
     private ObjectMapper objectMapper = new ObjectMapper();
-    private DatabaseWrapper db = new DatabaseWrapper();
+    private DatabaseWrapperQuestion db = new DatabaseWrapperQuestion();
     private static QuestionService quest;
 
     static {
@@ -68,7 +69,7 @@ public class QuestionServiceImpl implements QuestionService {
 //        for (Question question : questions) {
 //            System.out.println(question.getQuestion());
 //        }
-        List<String> viewQuest = new DatabaseWrapper().listQuestions();
+        List<String> viewQuest = new DatabaseWrapperQuestion().listQuestions();
         for (String question : viewQuest) {
             System.out.println(question);
         }
@@ -76,6 +77,6 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public void redactQuestion(String question, String param, String newValue) {
-        new DatabaseWrapper().updateQuest(question, param, newValue);
+        new DatabaseWrapperQuestion().updateQuest(question, param, newValue);
     }
 }
