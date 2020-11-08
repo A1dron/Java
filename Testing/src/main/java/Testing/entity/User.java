@@ -1,4 +1,4 @@
-package Testing.user;
+package Testing.entity;
 
 
 public class User {

@@ -1,82 +1,53 @@
 package Testing.services;
 
-import Testing.DataBaseWrapper.DatabaseWrapperQuestion;
-import Testing.DataBaseWrapper.DatabaseWrapperUser;
+import Testing.repositories.QuestionRepository;
 import Testing.entity.Question;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.io.IOException;
-import java.sql.*;
 import java.util.List;
 
+@Component
 public class QuestionServiceImpl implements QuestionService {
 
-    private Connection connection = null;
-    private PreparedStatement statement = null;
-    private ResultSet result = null;
-    private List<Question> questions;
     private String pathToFile;
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-    private DatabaseWrapperQuestion db = new DatabaseWrapperQuestion();
-    private static QuestionService quest;
-
-    static {
-        quest = new QuestionServiceImpl();
-    }
-
-    public static QuestionService getInstance() {
-        return quest;
-    }
+    @Autowired
+    private ObjectMapper objectMapper;
+    @Autowired
+    private QuestionRepository db;
 
     public void loadFromJSON(String pathToFile) throws IOException {
-        this.pathToFile = pathToFile;
-        questions = objectMapper.readValue(new File(pathToFile), new TypeReference<List<Question>>() {
-        });
-        viewQuestions();
+//        this.pathToFile = pathToFile;
+//        questions = objectMapper.readValue(new File(pathToFile), new TypeReference<List<Question>>() {});
     }
 
-    public QuestionServiceImpl() {
+    @Override
+    public List<String> getListQuestions() {
+        return db.listQuestions();
+    }
 
+    @Override
+    public Question questionInfo(int id) {
+        return db.getQuestion(id);
     }
 
     @Override
     public void addQuestion(Question quest) throws IOException {
-        questions.add(quest);
-        objectMapper.writeValue(new File(pathToFile), questions);
         db.addQuest(quest);
     }
 
     @Override
     public void delQuestion(String question) {
-        questions.removeIf(i -> i.getQuestion().equals(question));
+
         db.delQuest(question);
     }
 
-    @Override
-    public void printByQuest(String question) {
-        for (Question quest : questions) {
-            if (quest.getQuestion().equals(question)) {
-                System.out.println(quest);
-            }
-        }
-    }
 
     @Override
-    public void viewQuestions() throws IOException {
-//        for (Question question : questions) {
-//            System.out.println(question.getQuestion());
-//        }
-        List<String> viewQuest = new DatabaseWrapperQuestion().listQuestions();
-        for (String question : viewQuest) {
-            System.out.println(question);
-        }
-    }
-
-    @Override
-    public void redactQuestion(String question, String param, String newValue) {
-        new DatabaseWrapperQuestion().updateQuest(question, param, newValue);
+    public void updateQuestion(int id, String param, String newValue) {
+        db.updateQuest(id, param, newValue);
     }
 }

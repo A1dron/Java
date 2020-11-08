@@ -15,8 +15,8 @@ import java.io.IOException;
 //Реализовать сервлет для логина пользователя, обрабатывающего запрос GET /user/login. При
 // успешном логине данные о пользователе должны сохраняться в сессии.
 
-@WebServlet(urlPatterns = {"/user/login"})
-@Component
+//@WebServlet(urlPatterns = {"/user/login"})
+//@Component
 public class LogServlet extends HttpServlet {
     @Autowired
     UserService user;

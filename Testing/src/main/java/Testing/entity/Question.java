@@ -7,6 +7,21 @@ public class Question {
     public Question() {
     }
 
+    private String question;
+    private String typeQuestion;
+    private String author;
+    private String difficulty;
+    private String answer;
+    private boolean isPassed;
+
+    public Question(String question, String typeQuestion, String author, String difficulty, String answer){
+        this.question = question;
+        this.typeQuestion = typeQuestion;
+        this.author = author;
+        this.difficulty = difficulty;
+        this.answer = answer;
+    }
+
     public String getQuestion() {
         return question;
     }
@@ -55,20 +70,6 @@ public class Question {
         isPassed = passed;
     }
 
-    private String question;
-    private String typeQuestion;
-    private String author;
-    private String difficulty;
-    private String answer;
-    private boolean isPassed;
-
-    public Question(String question, String typeQuestion, String author, String difficulty, String answer){
-        this.question = question;
-        this.typeQuestion = typeQuestion;
-        this.author = author;
-        this.difficulty = difficulty;
-        this.answer = answer;
-    }
 
     @Override
     public String toString() {
@@ -81,7 +82,4 @@ public class Question {
                 '}';
     }
 
-    public boolean answerIsTrue(){
-        return true;
-    }
 }

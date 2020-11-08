@@ -13,7 +13,7 @@ public class Main {
     private static final QuestionService questionService = QuestionServiceImpl.getInstance();
 
     public static void main(String[] args) throws IOException {
-        //questionService.loadFromJSON("src/main/java/Testing/questions");
+        //questionService.loadFromJSON("src/main/java/Testing/questions.json");
         User user = new User("Tes", "Tess", "test1");
         UserService userService = UserServiceImpl.getInstance();
         //userService.registration(user);

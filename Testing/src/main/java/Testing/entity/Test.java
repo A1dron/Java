@@ -12,7 +12,7 @@ public class Test {
 
     public void startTest() {
         for (Question question : questions) {
-            question.answerIsTrue();
+            question.isPassed();
         }
     }
 }

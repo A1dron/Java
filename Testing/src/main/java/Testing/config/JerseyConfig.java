@@ -1,5 +1,6 @@
-package Testing.entity;
+package Testing.config;
 
+import Testing.controller.QuestionRest;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 

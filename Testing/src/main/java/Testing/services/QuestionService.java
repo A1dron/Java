@@ -11,11 +11,11 @@ public interface QuestionService {
 
     void delQuestion(String question);
 
-    void printByQuest(String question);
-
     void loadFromJSON(String pathToFile) throws IOException;
 
-    void viewQuestions() throws IOException;
+    List<String> getListQuestions();
 
-    void redactQuestion(String question, String param, String newValue);
+    Question questionInfo(int id);
+
+    void updateQuestion(int id, String param, String newValue);
 }

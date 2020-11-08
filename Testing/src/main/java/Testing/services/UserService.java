@@ -1,6 +1,6 @@
 package Testing.services;
 
-import Testing.user.User;
+import Testing.entity.User;
 
 public interface UserService {
 

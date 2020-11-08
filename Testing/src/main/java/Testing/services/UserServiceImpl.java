@@ -1,26 +1,15 @@
 package Testing.services;
 
-import Testing.DataBaseWrapper.DatabaseWrapperUser;
-import Testing.user.User;
+import Testing.repositories.UserRepository;
+import Testing.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserServiceImpl implements UserService {
 
-
-    private static UserServiceImpl instance;
-    private DatabaseWrapperUser db = new DatabaseWrapperUser();
-
-    private UserServiceImpl() {
-
-    }
-
-    public static UserServiceImpl getInstance() {
-        if (instance == null) {
-            instance = new UserServiceImpl();
-        }
-        return instance;
-    }
+    @Autowired
+    private UserRepository db;
 
     @Override
     public boolean authorization(User user) {
