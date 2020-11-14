@@ -1,6 +1,8 @@
 package Testing.servlet;
 
+import Testing.entity.User;
 import Testing.services.UserService;
+import Testing.services.UserServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,10 +33,14 @@ public class LogServlet extends HttpServlet {
         String login = req.getParameter("login");
         String name = req.getParameter("name");
         String pass = req.getParameter("password");
-        if(login != null){
-            session.setAttribute("login", login);
-            session.setAttribute("name", name);
-            session.setAttribute("password", pass);
+        try {
+            if (login != null && user.authorization(new User(name, login, pass))) {
+                session.setAttribute("login", login);
+                session.setAttribute("name", name);
+                session.setAttribute("password", pass);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

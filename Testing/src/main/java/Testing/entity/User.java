@@ -1,11 +1,32 @@
 package Testing.entity;
 
+import Testing.enums.UserRole;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users")
+    @SequenceGenerator(name="users", sequenceName = "seq_users")
+    private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "login")
     private String login;
+    @Column(name = "password")
     private String password;
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
+    @OneToMany(mappedBy = "user")
+    private List<Question> questions;
+    public void addQuestion(Question question) {
+        questions.add(question);
+        question.setAuthor(this.name);
+    }
 
     public String getName() {
         return name;

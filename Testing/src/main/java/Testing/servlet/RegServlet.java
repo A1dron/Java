@@ -1,6 +1,5 @@
 package Testing.servlet;
 
-import Testing.repositories.UserRepository;
 import Testing.services.UserService;
 import Testing.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,6 +26,10 @@ public class RegServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         String dataLine = req.getReader().lines().collect(Collectors.joining());
         User user = objectMapper.readValue(dataLine, User.class);
-        new UserRepository().regUser(user);
+        try {
+            this.user.registration(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

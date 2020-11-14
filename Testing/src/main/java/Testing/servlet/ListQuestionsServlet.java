@@ -1,8 +1,9 @@
 package Testing.servlet;
 
 
+import Testing.entity.Question;
+import Testing.repositories.QuestionAccessServiceImpl;
 import Testing.repositories.QuestionRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,16 +20,20 @@ public class ListQuestionsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        //ObjectMapper objectMapper = new ObjectMapper();
         resp.setContentType("text/html");
         //HttpSession session = req.getSession();
         PrintWriter writer = resp.getWriter();
         try {
-            List<String> quest = new QuestionRepository().listQuestions();
-            for (String question : quest) {
-                writer.println("<p>Question: " + question + "</p>");
+            List<Question> quest = new QuestionAccessServiceImpl().viewListQuestions();
+            for (Question question : quest) {
+                writer.println("<p>Question: " + question.getQuestion() + "</p>");
             }
-        }finally {
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
             writer.close();
         }
     }

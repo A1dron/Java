@@ -1,6 +1,5 @@
 package Testing.controller;
 
-import Testing.repositories.QuestionRepository;
 import Testing.entity.Question;
 import Testing.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,44 +9,44 @@ import javax.ws.rs.*;
 import java.io.IOException;
 import java.util.List;
 
-@Path("/questions")
+@Path("/test")
 @Consumes("application/json")
 @Produces("application/json")
 @Component
 public class QuestionRest {
 
     @Autowired
-    QuestionService questionService;
+    private QuestionService questionService;
 
 
     @POST
     @Path("/question/view")
-    public List<String> getAll(){
+    public List<String> getAll() throws Exception {
         return questionService.getListQuestions();
     }
 
     @GET
     @Path("/question/{id}")
-    public Question getQuestion(@PathParam("id") int id){
+    public Question getQuestion(@PathParam("id") Integer id) throws Exception {
         return questionService.questionInfo(id);
     }
 
     @PUT
     @Path("/question/{id}")
-    public Question updateQuestion(@PathParam("id") int id, String param, String newValue){
-        questionService.updateQuestion(id,param,newValue);
+    public Question updateQuestion(@PathParam("id") int id, String param, String newValue) throws Exception {
+        questionService.updateQuestion(id, param, newValue);
         return null;
     }
 
     @DELETE
     @Path("/question/{id}")
-    public void delQuest(@PathParam("id") String quest){
-        questionService.delQuestion(quest);
+    public void deleteQuestion(@PathParam("id") Integer id) throws Exception {
+        questionService.deleteQuestion(id);
     }
 
     @POST
     @Path("/question")
-    public void newQuestion(Question question) throws IOException {
+    public void newQuestion(Question question) throws Exception {
         questionService.addQuestion(question);
     }
 }

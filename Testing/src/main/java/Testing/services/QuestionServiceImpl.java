@@ -1,7 +1,8 @@
 package Testing.services;
 
-import Testing.repositories.QuestionRepository;
 import Testing.entity.Question;
+import Testing.repositories.QuestionAccessServiceImpl;
+import Testing.repositories.QuestionRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,7 +18,7 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired
-    private QuestionRepository db;
+    private QuestionAccessServiceImpl db;
 
     public void loadFromJSON(String pathToFile) throws IOException {
 //        this.pathToFile = pathToFile;
@@ -25,29 +26,33 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public List<String> getListQuestions() {
-        return db.listQuestions();
+    public List<String> getListQuestions() throws Exception {
+        List<Question> list = db.viewListQuestions();
+        List<String> questions = null;
+        for (Question question: list) {
+            questions.add(question.getQuestion());
+        }
+        return questions;
     }
 
     @Override
-    public Question questionInfo(int id) {
-        return db.getQuestion(id);
+    public Question questionInfo(int id) throws Exception {
+        return db.getQuestion((long)id);
     }
 
     @Override
-    public void addQuestion(Question quest) throws IOException {
-        db.addQuest(quest);
+    public void updateQuestion(int id, String param, String newValue) throws Exception {
+
     }
 
     @Override
-    public void delQuestion(String question) {
-
-        db.delQuest(question);
+    public void addQuestion(Question quest) throws Exception {
+        db.addQuestion(quest);
     }
 
-
     @Override
-    public void updateQuestion(int id, String param, String newValue) {
-        db.updateQuest(id, param, newValue);
+    public void deleteQuestion(int id) throws Exception {
+
+        db.deleteQuestion((long)id);
     }
 }
