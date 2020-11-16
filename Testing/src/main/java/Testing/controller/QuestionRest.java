@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
-import java.io.IOException;
 import java.util.List;
 
 @Path("/test")
@@ -21,31 +20,31 @@ public class QuestionRest {
 
     @POST
     @Path("/question/view")
-    public List<String> getAll() throws Exception {
+    public List<String> getAll(){
         return questionService.getListQuestions();
     }
 
     @GET
     @Path("/question/{id}")
-    public Question getQuestion(@PathParam("id") Integer id) throws Exception {
+    public Question getQuestion(@PathParam("id") Integer id){
         return questionService.questionInfo(id);
     }
 
     @PUT
     @Path("/question/{id}")
-    public Question updateQuestion(@PathParam("id") Long id, String question, List<String> answer) throws Exception {
+    public Question updateQuestion(@PathParam("id") Long id, String question, List<String> answer){
         return questionService.updateQuestion(id, question, answer);
     }
 
     @DELETE
     @Path("/question/{id}")
-    public void deleteQuestion(@PathParam("id") Integer id) throws Exception {
+    public void deleteQuestion(@PathParam("id") Integer id){
         questionService.deleteQuestion(id);
     }
 
     @POST
     @Path("/question")
-    public void newQuestion(Question question) throws Exception {
+    public void newQuestion(Question question){
         questionService.addQuestion(question);
     }
 }

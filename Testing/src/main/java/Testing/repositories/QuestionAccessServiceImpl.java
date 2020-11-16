@@ -1,44 +1,39 @@
 package Testing.repositories;
 
 import Testing.entity.Question;
-import org.apache.ibatis.annotations.Case;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
+@Component
 public class QuestionAccessServiceImpl {
     @Autowired
     QuestionRepository repository;
-    @PersistenceContext
-    private EntityManager em;
 
-    public void addQuestion(Question question){
+    public void addQuestion(Question question) {
         repository.save(question);
     }
 
-    public void deleteQuestion(Long id){
+    public void deleteQuestion(Long id) {
+
         repository.delete(id);
     }
 
-    public Question getQuestion(Long id) throws Exception {
-        List<Question> questions = (List<Question>)repository.findAllById(Collections.singleton(id));
-        for (Question question: questions) {
-            return question;
-        }
-        throw new Exception("No the question");
+    public Question getQuestion(Long id) {
+        Optional<Question> questions = repository.findById(id);
+        return questions.orElseThrow(() -> {
+            throw new RuntimeException("No this question");
+        });
     }
 
-    public List<Question> viewListQuestions(){
-        List<Question> questions = (List<Question>)repository.findAll();
-        return questions;
+    public List<Question> viewListQuestions() {
+        return repository.findAll();
     }
 
-    public Question updateQuestion(Long id, String question, List<String> answer){
-        Question updateQuestion = em.find(Question.class, id);
+    public Question updateQuestion(Long id, String question, List<String> answer) {
+        Question updateQuestion = getQuestion(id);
         updateQuestion.setQuestion(question);
         updateQuestion.setAnswer(answer);
         return updateQuestion;

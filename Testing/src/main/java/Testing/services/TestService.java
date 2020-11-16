@@ -1,13 +1,13 @@
 package Testing.services;
 
-import Testing.entity.Question;
 import Testing.entity.Test;
 import Testing.repositories.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Optional;
 
+@Component
 public class TestService {
 
     @Autowired

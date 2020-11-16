@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class QuestionServiceImpl implements QuestionService {
@@ -20,23 +21,18 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionAccessServiceImpl db;
 
-    public void loadFromJSON(String pathToFile) throws IOException {
+    public void loadFromJSON(String pathToFile){
 //        this.pathToFile = pathToFile;
 //        questions = objectMapper.readValue(new File(pathToFile), new TypeReference<List<Question>>() {});
     }
 
     @Override
-    public List<String> getListQuestions() throws Exception {
-        List<Question> list = db.viewListQuestions();
-        List<String> questions = null;
-        for (Question question: list) {
-            questions.add(question.getQuestion());
-        }
-        return questions;
+    public List<String> getListQuestions(){
+        return db.viewListQuestions().stream().map(Question::getQuestion).collect(Collectors.toList());
     }
 
     @Override
-    public Question questionInfo(int id) throws Exception {
+    public Question questionInfo(int id) {
         return db.getQuestion((long)id);
     }
 
@@ -46,13 +42,13 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void addQuestion(Question quest) throws Exception {
+    public Question addQuestion(Question quest) {
         db.addQuestion(quest);
+        return quest;
     }
 
     @Override
-    public void deleteQuestion(int id) throws Exception {
-
+    public void deleteQuestion(int id){
         db.deleteQuestion((long)id);
     }
 }

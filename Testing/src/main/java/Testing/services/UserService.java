@@ -5,9 +5,9 @@ import Testing.entity.User;
 public interface UserService {
 
 
-    boolean authorization(User user) throws Exception;
+    boolean authorization(User user);
 
-    void registration(User user) throws Exception;
+    User registration(User user);
 
     void logout();
 }

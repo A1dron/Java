@@ -7,7 +7,6 @@ import java.util.List;
 
 @Entity
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users")
     @SequenceGenerator(name="users", sequenceName = "seq_users")

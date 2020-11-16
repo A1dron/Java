@@ -1,8 +1,8 @@
 package Testing.repositories;
 
 import Testing.entity.Test;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TestRepository extends CrudRepository<Test, Long> {
+public interface TestRepository extends JpaRepository<Test, Long> {
     void delete(Long id);
 }

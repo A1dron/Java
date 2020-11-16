@@ -7,15 +7,15 @@ import java.util.List;
 
 public interface QuestionService {
 
-    void addQuestion(Question quest) throws Exception;
+    Question addQuestion(Question quest);
 
-    void deleteQuestion(int id) throws Exception;
+    void deleteQuestion(int id);
 
-    void loadFromJSON(String pathToFile) throws IOException;
+    void loadFromJSON(String pathToFile);
 
-    List<String> getListQuestions() throws Exception;
+    List<String> getListQuestions();
 
-    Question questionInfo(int id) throws Exception;
+    Question questionInfo(int id);
 
     Question updateQuestion(Long id, String question, List<String> answer);
 }

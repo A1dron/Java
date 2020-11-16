@@ -12,7 +12,7 @@ public class UserServiceImpl implements UserService {
     private UserAccessServiceImpl userAccessService;
 
     @Override
-    public boolean authorization(User user) throws Exception {
+    public boolean authorization(User user) {
         if (userAccessService.authorizationUser(user)) {
             return true;
         }
@@ -20,8 +20,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void registration(User user) throws Exception {
-        userAccessService.registrationUser(user);
+    public User registration(User user) {
+        return userAccessService.registrationUser(user);
     }
 
     @Override
