@@ -17,5 +17,5 @@ public interface QuestionService {
 
     Question questionInfo(int id) throws Exception;
 
-    void updateQuestion(int id, String param, String newValue) throws Exception;
+    Question updateQuestion(Long id, String question, List<String> answer);
 }

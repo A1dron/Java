@@ -33,9 +33,8 @@ public class QuestionRest {
 
     @PUT
     @Path("/question/{id}")
-    public Question updateQuestion(@PathParam("id") int id, String param, String newValue) throws Exception {
-        questionService.updateQuestion(id, param, newValue);
-        return null;
+    public Question updateQuestion(@PathParam("id") Long id, String question, List<String> answer) throws Exception {
+        return questionService.updateQuestion(id, question, answer);
     }
 
     @DELETE

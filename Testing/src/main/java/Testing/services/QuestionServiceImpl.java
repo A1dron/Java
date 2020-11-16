@@ -41,8 +41,8 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void updateQuestion(int id, String param, String newValue) throws Exception {
-
+    public Question updateQuestion(Long id, String question, List<String> answer) {
+        return db.updateQuestion(id,question,answer);
     }
 
     @Override

@@ -1,14 +1,20 @@
 package Testing.repositories;
 
 import Testing.entity.Question;
+import org.apache.ibatis.annotations.Case;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.Collections;
 import java.util.List;
 
 public class QuestionAccessServiceImpl {
     @Autowired
     QuestionRepository repository;
+    @PersistenceContext
+    private EntityManager em;
 
     public void addQuestion(Question question){
         repository.save(question);
@@ -31,8 +37,10 @@ public class QuestionAccessServiceImpl {
         return questions;
     }
 
-
-    public void updateQuestion(int id, String param, String newValue) throws Exception {
-
+    public Question updateQuestion(Long id, String question, List<String> answer){
+        Question updateQuestion = em.find(Question.class, id);
+        updateQuestion.setQuestion(question);
+        updateQuestion.setAnswer(answer);
+        return updateQuestion;
     }
 }

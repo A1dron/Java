@@ -28,6 +28,22 @@ public class User {
         question.setAuthor(this.name);
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
     public String getName() {
         return name;
     }
@@ -56,5 +72,6 @@ public class User {
         this.name = name;
         this.login = login;
         this.password = password;
+        this.role = UserRole.USER;
     }
 }
