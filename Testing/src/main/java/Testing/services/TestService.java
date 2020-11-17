@@ -1,5 +1,6 @@
 package Testing.services;
 
+import Testing.entity.Question;
 import Testing.entity.Test;
 import Testing.repositories.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,12 @@ public class TestService {
     }
 
     public void deleteTest(Long id){
-        repository.delete(id);
+        repository.delete(getTest(id));
     }
 
-    public Optional<Test> getTest(Long id){
+
+    public Test getTest(Long id){
         Optional<Test> test = repository.findById(id);
-        return test;
+        return test.get();
     }
 }

@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Many;
 
 import javax.persistence.*;
 import java.util.List;
-
+@Entity
 public class Test {
 
     @Id

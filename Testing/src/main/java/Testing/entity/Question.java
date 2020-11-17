@@ -22,12 +22,12 @@ public class Question {
     @Enumerated(EnumType.STRING)
     private TypeQuestion typeQuestion;
     @ManyToOne
-    @Column(name = "author")
-    private String author;
+    @JoinColumn(name = "author")
+    private User author;
     @Enumerated(EnumType.STRING)
     private Difficulty difficulty;
     @Column(name = "answer")
-    private List<String> answer;
+    private String answer;
     //private boolean isPassed;
 
 
@@ -39,7 +39,7 @@ public class Question {
             @JoinColumn (name = "testId")})
     private List<Test> test;
 
-    public Question(String question, TypeQuestion typeQuestion, String author, Difficulty difficulty, List<String> answer){
+    public Question(String question, TypeQuestion typeQuestion, User author, Difficulty difficulty, String answer){
         this.question = question;
         this.typeQuestion = typeQuestion;
         this.author = author;
@@ -63,11 +63,11 @@ public class Question {
         this.typeQuestion = typeQuestion;
     }
 
-    public String getAuthor() {
+    public User getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(User author) {
         this.author = author;
     }
 
@@ -79,11 +79,11 @@ public class Question {
         this.difficulty = difficulty;
     }
 
-    public List<String> getAnswer() {
+    public String getAnswer() {
         return answer;
     }
 
-    public void setAnswer(List<String> answer) {
+    public void setAnswer(String answer) {
         this.answer = answer;
     }
 

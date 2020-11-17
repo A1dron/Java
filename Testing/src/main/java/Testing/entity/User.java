@@ -20,11 +20,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "author")
     private List<Question> questions;
     public void addQuestion(Question question) {
         questions.add(question);
-        question.setAuthor(this.name);
+        question.setAuthor(this);
     }
 
     public Long getId() {

@@ -18,7 +18,7 @@ public class QuestionAccessServiceImpl {
 
     public void deleteQuestion(Long id) {
 
-        repository.delete(id);
+        repository.delete(getQuestion(id));
     }
 
     public Question getQuestion(Long id) {
@@ -35,7 +35,7 @@ public class QuestionAccessServiceImpl {
     public Question updateQuestion(Long id, String question, List<String> answer) {
         Question updateQuestion = getQuestion(id);
         updateQuestion.setQuestion(question);
-        updateQuestion.setAnswer(answer);
+        //updateQuestion.setAnswer(answer);
         return updateQuestion;
     }
 }
